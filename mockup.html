@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>E-learning Production × AI — Mockup</title>
+<style>
+  :root{
+    --navy:#242f52; --navy2:#1b2440;
+    --cream:#e6dfcf; --paper:#f4f2ef;
+    --orange:#f75b37; --green:#8dd88d; --brick:#842e14;
+    --blue:#02499d; --teal:#059ab2; --ltteal:#9bdde5;
+    --olive:#2a4728; --sage:#5fa395; --gold:#fff382;
+    --plum:#4d2c41; --rose:#b95d77; --bronze:#bf6b21;
+  }
+  *{box-sizing:border-box; margin:0; padding:0; border-radius:0 !important;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Segoe UI',system-ui,Arial,sans-serif; background:var(--navy); color:var(--cream); line-height:1.5;}
+  .wrap{max-width:1120px; margin:0 auto; padding:0 24px;}
+  section{padding:72px 0;}
+  h1,h2,h3{font-weight:800; letter-spacing:-.5px; line-height:1.1;}
+
+  /* top bar */
+  .topbar{position:fixed; top:0; left:0; right:0; z-index:50; background:var(--navy2);
+    border-bottom:4px solid var(--orange); display:flex; align-items:center; justify-content:space-between; padding:12px 24px;}
+  .brand{font-weight:800; font-size:14px; letter-spacing:2px; text-transform:uppercase; color:var(--cream);}
+  .brand span{color:var(--orange);}
+  .lang{display:flex; border:2px solid var(--cream);}
+  .lang button{background:transparent; color:var(--cream); font-weight:700; padding:6px 14px; cursor:pointer; border:none; font-size:13px;}
+  .lang button.on{background:var(--orange); color:var(--navy);}
+
+  /* hero */
+  .hero{padding-top:150px; padding-bottom:90px; background:var(--navy);}
+  .kicker{display:inline-block; background:var(--green); color:var(--navy); font-weight:800; text-transform:uppercase;
+    letter-spacing:2px; font-size:12px; padding:6px 12px; margin-bottom:22px;}
+  .hero h1{font-size:56px; max-width:16ch;}
+  .hero h1 em{font-style:normal; color:var(--orange);}
+  .hero p.sub{margin-top:20px; font-size:19px; max-width:52ch; color:var(--paper);}
+  .counter{display:flex; gap:24px; flex-wrap:wrap; margin-top:44px;}
+  .stat{background:var(--navy2); border-left:8px solid var(--orange); padding:22px 26px; min-width:180px;}
+  .stat .num{font-size:52px; font-weight:800; color:var(--cream);}
+  .stat.g{border-left-color:var(--green);}
+  .stat.g .num{color:var(--green);}
+  .stat .lab{font-size:13px; text-transform:uppercase; letter-spacing:1.5px; color:var(--ltteal); margin-top:4px;}
+  .arrow{font-size:52px; align-self:center; color:var(--orange); font-weight:800;}
+
+  /* process nav strip */
+  .procstrip{background:var(--cream); color:var(--navy); padding:0;}
+  .procstrip .wrap{display:flex; flex-wrap:wrap;}
+  .procstrip a{flex:1 1 0; min-width:200px; text-decoration:none; color:var(--navy); padding:26px 20px;
+    border-right:2px solid var(--navy); display:block;}
+  .procstrip a:last-child{border-right:none;}
+  .procstrip .n{font-size:12px; font-weight:800; letter-spacing:2px; color:var(--orange);}
+  .procstrip .t{font-size:19px; font-weight:800; margin-top:6px;}
+  .procstrip .tag{display:inline-block; margin-top:10px; font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:1px; padding:3px 8px; color:#fff;}
+  .tag.none{background:#8a8a8a;} .tag.some{background:var(--teal);} .tag.major{background:var(--orange);}
+
+  /* stage */
+  .stage h2{font-size:38px;}
+  .stage .lead{color:var(--paper); font-size:17px; margin-top:10px; max-width:58ch;}
+  .stagenum{font-size:13px; font-weight:800; letter-spacing:3px; color:var(--green); text-transform:uppercase;}
+  .subtasks{margin-top:40px; display:grid; gap:34px;}
+  .card{background:var(--navy2); border:2px solid #34406b;}
+  .card .head{display:flex; align-items:center; justify-content:space-between; padding:16px 22px; border-bottom:2px solid #34406b;}
+  .card .job{font-size:20px; font-weight:800;}
+  .toggle{display:flex; border:2px solid var(--cream);}
+  .toggle button{background:transparent; color:var(--cream); font-weight:800; font-size:12px; letter-spacing:1px; text-transform:uppercase; padding:7px 14px; cursor:pointer; border:none;}
+  .toggle button.before.on{background:var(--brick); color:#fff;}
+  .toggle button.after.on{background:var(--orange); color:var(--navy);}
+  .card .body{display:grid; grid-template-columns:1fr 1fr; gap:0;}
+  .media{aspect-ratio:16/10; background:#11162b; border-right:2px solid #34406b; display:flex; align-items:center; justify-content:center; text-align:center; color:#6b78a6; font-size:13px; padding:20px; position:relative;}
+  .media .ph{border:2px dashed #46538a; padding:24px 18px; width:100%;}
+  .media .ph b{display:block; color:var(--cream); font-size:14px; margin-bottom:6px;}
+  .panel{padding:24px 22px;}
+  .statebadge{display:inline-block; font-size:11px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; padding:4px 10px; margin-bottom:14px;}
+  .statebadge.before{background:var(--brick); color:#fff;}
+  .statebadge.after{background:var(--green); color:var(--navy);}
+  .panel p{font-size:15px; color:var(--paper);}
+  .tools{display:flex; flex-wrap:wrap; gap:10px; margin-top:18px;}
+  .chip{display:flex; flex-direction:column; padding:10px 14px; border-left:6px solid var(--teal); background:#161c38; min-width:130px;}
+  .chip .cn{font-weight:800; font-size:14px; color:var(--cream);}
+  .chip .cd{font-size:11px; color:var(--ltteal); text-transform:uppercase; letter-spacing:.5px; margin-top:2px;}
+  .chip.old{border-left-color:#6b6b6b;} .chip.old .cn{color:#b9b9b9;} .chip.old .cd{color:#8a8a8a;}
+  .chip.o{border-left-color:var(--orange);} .chip.b{border-left-color:var(--blue);} .chip.gr{border-left-color:var(--green);} .chip.br{border-left-color:var(--bronze);}
+  .hidden{display:none;}
+
+  /* skills shift */
+  .skills{background:var(--cream); color:var(--navy);}
+  .skills h2{font-size:38px;}
+  .skillgrid{display:grid; grid-template-columns:1fr auto 1fr; gap:24px; align-items:center; margin-top:36px;}
+  .skillcol{background:#fff; border:3px solid var(--navy); padding:24px;}
+  .skillcol h3{font-size:15px; letter-spacing:2px; text-transform:uppercase; margin-bottom:16px;}
+  .skillcol.before h3{color:var(--brick);} .skillcol.after h3{color:var(--orange);}
+  .badge{display:block; font-weight:800; padding:12px 16px; margin-bottom:10px; font-size:16px;}
+  .badge.keep{background:var(--navy); color:var(--cream);}
+  .badge.drop{background:#e2e2e2; color:#8a8a8a; text-decoration:line-through;}
+  .badge.add{background:var(--orange); color:var(--navy);}
+  .midarrow{font-size:44px; font-weight:800; color:var(--orange);}
+
+  /* lessons */
+  .lessons{background:var(--navy2);}
+  .lessons h2{font-size:38px; text-align:center;}
+  .lesscards{display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:44px;}
+  .less{background:var(--navy); border-top:8px solid var(--orange); padding:30px 24px;}
+  .less .li{font-size:34px; font-weight:800; color:var(--orange);}
+  .less h3{font-size:20px; margin:12px 0 8px;}
+  .less p{color:var(--paper); font-size:15px;}
+  .less.k{border-top-color:var(--green);} .less.k .li{color:var(--green);}
+  .kaizen{display:flex; gap:8px; flex-wrap:wrap; margin-top:12px;}
+  .kaizen span{background:var(--green); color:var(--navy); font-weight:800; font-size:12px; padding:5px 10px; text-transform:uppercase; letter-spacing:1px;}
+
+  .note{background:var(--gold); color:var(--navy); padding:14px 24px; font-weight:700; text-align:center; font-size:14px;}
+  @media(max-width:820px){
+    .hero h1{font-size:38px;} .card .body{grid-template-columns:1fr;} .media{border-right:none; border-bottom:2px solid #34406b;}
+    .skillgrid{grid-template-columns:1fr;} .lesscards{grid-template-columns:1fr;}
+    .procstrip a{border-right:none; border-bottom:2px solid var(--navy);}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand">E-learning <span>×</span> AI</div>
+  <div class="lang">
+    <button class="on" onclick="setLang('en',this)">EN</button>
+    <button onclick="setLang('vi',this)">VIE</button>
+  </div>
+</div>
+
+<div class="note" data-en="MOCKUP — one stage shown (Illustration). Final page will have all 4 stages. Try the EN/VIE and Before/After toggles." data-vi="BẢN MOCKUP — chỉ hiển thị 1 giai đoạn (Illustration). Bản chính thức sẽ có đủ 4 giai đoạn. Thử nút EN/VIE và Before/After."></div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <span class="kicker" data-en="AI Application Team Sharing" data-vi="Chia sẻ ứng dụng AI của team">AI Application Team Sharing</span>
+    <h1 data-en="We rebuilt E-learning production <em>in-house</em> with AI." data-vi="Chúng tôi tự sản xuất E-learning <em>in-house</em> bằng AI.">We rebuilt E-learning production <em>in-house</em> with AI.</h1>
+    <p class="sub" data-en="Same 15-minute course. No more vendor. From idea to published SCORM — done by our own team." data-vi="Cùng một khóa học 15 phút. Không còn thuê vendor. Từ ý tưởng đến SCORM hoàn chỉnh — do chính team mình làm.">Same 15-minute course. No more vendor. From idea to published SCORM — done by our own team.</p>
+    <div class="counter">
+      <div class="stat"><div class="num" id="c1">114</div><div class="lab" data-en="days · with vendor" data-vi="ngày · thuê vendor">days · with vendor</div></div>
+      <div class="arrow">→</div>
+      <div class="stat g"><div class="num" id="c2">74</div><div class="lab" data-en="days · in-house + AI" data-vi="ngày · in-house + AI">days · in-house + AI</div></div>
+      <div class="stat g"><div class="num">−40</div><div class="lab" data-en="days saved · 100% in-house" data-vi="ngày tiết kiệm · 100% in-house">days saved · 100% in-house</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS STRIP -->
+<div class="procstrip">
+  <div class="wrap">
+    <a href="#s3"><div class="n">01</div><div class="t" data-en="Preparation" data-vi="Chuẩn bị">Preparation</div><span class="tag none" data-en="No change" data-vi="Không đổi">No change</span></a>
+    <a href="#s3"><div class="n">02</div><div class="t" data-en="Content Design" data-vi="Thiết kế nội dung">Content Design</div><span class="tag some" data-en="Faster" data-vi="Nhanh hơn">Faster</span></a>
+    <a href="#s3"><div class="n">03</div><div class="t" data-en="Illustration Prep" data-vi="Chuẩn bị minh họa">Illustration Prep</div><span class="tag major" data-en="Major time saved" data-vi="Tiết kiệm nhiều">Major time saved</span></a>
+    <a href="#s3"><div class="n">04</div><div class="t" data-en="Digital Development" data-vi="Phát triển số">Digital Development</div><span class="tag major" data-en="Major time saved" data-vi="Tiết kiệm nhiều">Major time saved</span></a>
+  </div>
+</div>
+
+<!-- STAGE (Illustration) -->
+<section class="stage" id="s3">
+  <div class="wrap">
+    <div class="stagenum">Stage 03 · <span data-en="Major time saved" data-vi="Tiết kiệm nhiều thời gian">Major time saved</span></div>
+    <h2 data-en="Illustration Preparation" data-vi="Chuẩn bị hình minh họa">Illustration Preparation</h2>
+    <p class="lead" data-en="Building the on-screen presenter, the voice, and the visuals — the most expertise-heavy stage before AI." data-vi="Dựng người dẫn trên màn hình, giọng nói và hình ảnh — giai đoạn cần nhiều chuyên môn nhất trước khi có AI.">Building the on-screen presenter, the voice, and the visuals — the most expertise-heavy stage before AI.</p>
+
+    <div class="subtasks">
+
+      <!-- Narrator -->
+      <div class="card" data-card>
+        <div class="head">
+          <div class="job" data-en="① On-screen narrator" data-vi="① Người dẫn trên màn hình">① On-screen narrator</div>
+          <div class="toggle">
+            <button class="before" onclick="flip(this,'before')" data-en="Before" data-vi="Trước">Before</button>
+            <button class="after on" onclick="flip(this,'after')" data-en="After" data-vi="Sau">After</button>
+          </div>
+        </div>
+        <div class="body">
+          <div class="media">
+            <div class="ph state-before hidden"><b data-en="[ Before image/GIF ]" data-vi="[ Ảnh/GIF trước ]">[ Before image/GIF ]</b><span data-en="hand-drawn character in Illustrator" data-vi="nhân vật vẽ tay trong Illustrator">hand-drawn character in Illustrator</span></div>
+            <div class="ph state-after"><b data-en="[ After image/GIF ]" data-vi="[ Ảnh/GIF sau ]">[ After image/GIF ]</b><span data-en="HeyGen AI avatar talking" data-vi="AI avatar HeyGen đang nói">HeyGen AI avatar talking</span></div>
+          </div>
+          <div class="panel">
+            <div class="state-before hidden">
+              <span class="statebadge before" data-en="Before" data-vi="Trước">Before</span>
+              <p data-en="Illustrated by hand in Adobe Illustrator, then animated in Premiere. Needed deep design + motion-graphic expertise and a high-spec machine." data-vi="Vẽ tay trong Adobe Illustrator rồi animate trong Premiere. Cần chuyên môn thiết kế + motion graphic cao và máy cấu hình mạnh.">Illustrated by hand in Adobe Illustrator, then animated in Premiere. Needed deep design + motion-graphic expertise and a high-spec machine.</p>
+              <div class="tools">
+                <div class="chip old"><span class="cn">Illustrator</span><span class="cd" data-en="draw by hand" data-vi="vẽ tay">draw by hand</span></div>
+                <div class="chip old"><span class="cn">Premiere</span><span class="cd" data-en="animate" data-vi="dựng chuyển động">animate</span></div>
+              </div>
+            </div>
+            <div class="state-after">
+              <span class="statebadge after" data-en="After" data-vi="Sau">After</span>
+              <p data-en="Generate a talking AI avatar in HeyGen — no drawing, no manual animation, no high-end hardware." data-vi="Tạo AI avatar biết nói bằng HeyGen — không cần vẽ, không animate thủ công, không cần máy khủng.">Generate a talking AI avatar in HeyGen — no drawing, no manual animation, no high-end hardware.</p>
+              <div class="tools">
+                <div class="chip o"><span class="cn">HeyGen</span><span class="cd" data-en="AI video avatar" data-vi="AI avatar video">AI video avatar</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Voice-over -->
+      <div class="card" data-card>
+        <div class="head">
+          <div class="job" data-en="② Voice-over" data-vi="② Lồng tiếng">② Voice-over</div>
+          <div class="toggle">
+            <button class="before" onclick="flip(this,'before')" data-en="Before" data-vi="Trước">Before</button>
+            <button class="after on" onclick="flip(this,'after')" data-en="After" data-vi="Sau">After</button>
+          </div>
+        </div>
+        <div class="body">
+          <div class="media">
+            <div class="ph state-before hidden"><b data-en="[ Before image/GIF ]" data-vi="[ Ảnh/GIF trước ]">[ Before image/GIF ]</b><span data-en="external MC recording session" data-vi="buổi thu âm với MC ngoài">external MC recording session</span></div>
+            <div class="ph state-after"><b data-en="[ After image/GIF ]" data-vi="[ Ảnh/GIF sau ]">[ After image/GIF ]</b><span data-en="ElevenLabs voice generation" data-vi="tạo giọng bằng ElevenLabs">ElevenLabs voice generation</span></div>
+          </div>
+          <div class="panel">
+            <div class="state-before hidden">
+              <span class="statebadge before" data-en="Before" data-vi="Trước">Before</span>
+              <p data-en="Recorded EN & VI from an external MC. Quality depended on their environment and voice health — hard to keep consistent." data-vi="Thu tiếng Anh & Việt từ MC ngoài. Chất lượng phụ thuộc môi trường và sức khỏe giọng của họ — khó giữ ổn định.">Recorded EN & VI from an external MC. Quality depended on their environment and voice health — hard to keep consistent.</p>
+              <div class="tools"><div class="chip old"><span class="cn" data-en="External MC" data-vi="MC ngoài">External MC</span><span class="cd" data-en="manual recording" data-vi="thu âm thủ công">manual recording</span></div></div>
+            </div>
+            <div class="state-after">
+              <span class="statebadge after" data-en="After" data-vi="Sau">After</span>
+              <p data-en="Generate voice with ElevenLabs & HeyGen. Consistent tone and pace — even when dubbing into other languages." data-vi="Tạo giọng bằng ElevenLabs & HeyGen. Tông và nhịp ổn định — kể cả khi lồng sang ngôn ngữ khác.">Generate voice with ElevenLabs & HeyGen. Consistent tone and pace — even when dubbing into other languages.</p>
+              <div class="tools">
+                <div class="chip o"><span class="cn">ElevenLabs</span><span class="cd" data-en="AI voice + dubbing" data-vi="giọng AI + lồng tiếng">AI voice + dubbing</span></div>
+                <div class="chip gr"><span class="cn">HeyGen</span><span class="cd" data-en="voice sync" data-vi="đồng bộ giọng">voice sync</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Visual -->
+      <div class="card" data-card>
+        <div class="head">
+          <div class="job" data-en="③ Visuals (footage)" data-vi="③ Hình minh họa (quay)">③ Visuals (footage)</div>
+          <div class="toggle">
+            <button class="before" onclick="flip(this,'before')" data-en="Before" data-vi="Trước">Before</button>
+            <button class="after on" onclick="flip(this,'after')" data-en="After" data-vi="Sau">After</button>
+          </div>
+        </div>
+        <div class="body">
+          <div class="media">
+            <div class="ph state-before hidden"><b data-en="[ Before image/GIF ]" data-vi="[ Ảnh/GIF trước ]">[ Before image/GIF ]</b><span data-en="store re-shoot" data-vi="quay lại tại cửa hàng">store re-shoot</span></div>
+            <div class="ph state-after"><b data-en="[ After image/GIF ]" data-vi="[ Ảnh/GIF sau ]">[ After image/GIF ]</b><span data-en="RunwayML re-edit" data-vi="chỉnh sửa bằng RunwayML">RunwayML re-edit</span></div>
+          </div>
+          <div class="panel">
+            <div class="state-before hidden">
+              <span class="statebadge before" data-en="Before" data-vi="Trước">Before</span>
+              <p data-en="Shot on location in-store. If a shot missed the standard, the whole crew had to re-shoot." data-vi="Quay tại cửa hàng. Nếu cảnh quay không đạt chuẩn, cả ê-kíp phải quay lại.">Shot on location in-store. If a shot missed the standard, the whole crew had to re-shoot.</p>
+              <div class="tools"><div class="chip old"><span class="cn" data-en="Re-shoot" data-vi="Quay lại">Re-shoot</span><span class="cd" data-en="crew + location" data-vi="ê-kíp + địa điểm">crew + location</span></div></div>
+            </div>
+            <div class="state-after">
+              <span class="statebadge after" data-en="After" data-vi="Sau">After</span>
+              <p data-en="Still shoot in-store — but fix and re-edit images/video with AI instead of returning to re-shoot." data-vi="Vẫn quay tại cửa hàng — nhưng dùng AI để chỉnh và dựng lại ảnh/video thay vì quay lại.">Still shoot in-store — but fix and re-edit images/video with AI instead of returning to re-shoot.</p>
+              <div class="tools">
+                <div class="chip o"><span class="cn">RunwayML</span><span class="cd" data-en="AI video re-edit" data-vi="chỉnh video AI">AI video re-edit</span></div>
+                <div class="chip b"><span class="cn">ChatGPT</span><span class="cd" data-en="image fix" data-vi="chỉnh ảnh">image fix</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS SHIFT -->
+<section class="skills">
+  <div class="wrap">
+    <div class="stagenum" style="color:var(--brick)" data-en="What changed for the team" data-vi="Điều gì thay đổi với team">What changed for the team</div>
+    <h2 data-en="Same output. A shifted skillset." data-vi="Cùng sản phẩm. Bộ kỹ năng dịch chuyển.">Same output. A shifted skillset.</h2>
+    <p style="margin-top:10px; max-width:56ch;" data-en="The final deliverable is still a SCORM package. What changed is the expertise it takes to build it." data-vi="Sản phẩm cuối vẫn là gói SCORM. Điều thay đổi là chuyên môn cần để tạo ra nó.">The final deliverable is still a SCORM package. What changed is the expertise it takes to build it.</p>
+    <div class="skillgrid">
+      <div class="skillcol before">
+        <h3 data-en="Before" data-vi="Trước">Before</h3>
+        <span class="badge keep" data-en="Video editing" data-vi="Dựng video">Video editing</span>
+        <span class="badge drop" data-en="Design" data-vi="Thiết kế">Design</span>
+        <span class="badge drop" data-en="Motion graphic" data-vi="Motion graphic">Motion graphic</span>
+      </div>
+      <div class="midarrow">→</div>
+      <div class="skillcol after">
+        <h3 data-en="After" data-vi="Sau">After</h3>
+        <span class="badge keep" data-en="Video editing" data-vi="Dựng video">Video editing</span>
+        <span class="badge add" data-en="Prompting" data-vi="Prompting">Prompting</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LESSONS -->
+<section class="lessons">
+  <div class="wrap">
+    <h2 data-en="How we got here" data-vi="Chúng tôi đã đi tới đây như thế nào">How we got here</h2>
+    <div class="lesscards">
+      <div class="less"><div class="li">01</div><h3 data-en="Try &amp; error" data-vi="Thử &amp; sai">Try &amp; error</h3><p data-en="No playbook existed. We tested, failed, and kept the tools that worked." data-vi="Không có sẵn công thức. Chúng tôi thử, sai, và giữ lại công cụ hiệu quả.">No playbook existed. We tested, failed, and kept the tools that worked.</p></div>
+      <div class="less"><div class="li">02</div><h3 data-en="Daily practice" data-vi="Luyện tập mỗi ngày">Daily practice</h3><p data-en="Practice every day and keep up with fast-moving AI trends." data-vi="Thực hành mỗi ngày và cập nhật xu hướng AI thay đổi liên tục.">Practice every day and keep up with fast-moving AI trends.</p></div>
+      <div class="less k"><div class="li">03</div><h3 data-en="Always Kaizen" data-vi="Luôn Kaizen">Always Kaizen</h3><div class="kaizen"><span data-en="Learn" data-vi="Học">Learn</span><span data-en="Unlearn" data-vi="Bỏ học">Unlearn</span><span data-en="Relearn" data-vi="Học lại">Relearn</span></div></div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // count-up
+  function countUp(id,to){var el=document.getElementById(id),s=Date.now();(function t(){var p=Math.min((Date.now()-s)/1100,1);el.textContent=Math.round(to*p*(2-p));if(p<1)requestAnimationFrame(t);else el.textContent=to;})();}
+  window.addEventListener('load',function(){countUp('c1',114);countUp('c2',74);});
+  // before/after flip per card
+  function flip(btn,state){
+    var card=btn.closest('[data-card]');
+    card.querySelectorAll('.toggle button').forEach(function(b){b.classList.remove('on');});
+    btn.classList.add('on');
+    card.querySelectorAll('.state-before').forEach(function(e){e.classList.toggle('hidden',state!=='before');});
+    card.querySelectorAll('.state-after').forEach(function(e){e.classList.toggle('hidden',state!=='after');});
+  }
+  // language
+  function setLang(l,btn){
+    document.querySelectorAll('.lang button').forEach(function(b){b.classList.remove('on');});
+    btn.classList.add('on');
+    document.querySelectorAll('[data-en]').forEach(function(e){
+      var v=l==='vi'?e.getAttribute('data-vi'):e.getAttribute('data-en');
+      if(v!==null)e.innerHTML=v;
+    });
+    document.documentElement.lang=l;
+  }
+</script>
+</body>
+</html>
