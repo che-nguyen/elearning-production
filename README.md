@@ -18,7 +18,8 @@ You do **not** need to edit any code. Just drop your files into `assets/media/` 
 | Illustration | ① Narrator | `narrator-before` | `narrator-after` |
 | Illustration | ② Voice-over | `voiceover-before` | `voiceover-after` |
 | Illustration | ③ Visuals | `visual-before` | `visual-after` |
-| Digital Dev | Subtitles & cloning | `subtitle-before` | `subtitle-after` |
+| Digital Dev | ① Digitalization | `digitization-before` | `digitization-after` |
+| Digital Dev | ② Subtitles & cloning | `subtitle-before` | `subtitle-after` |
 
 > Add whatever extension you have. Example: `narrator-after.gif`, `voiceover-after.mp3`, `subtitle-before.png`, `visual-after.mp4`.
 > (Preparation has no before/after media — it is unchanged by design.)
@@ -27,7 +28,7 @@ You do **not** need to edit any code. Just drop your files into `assets/media/` 
 
 Colored-initial placeholders show automatically. To use official logos, drop a **PNG (transparent background)** named exactly:
 
-`gemini.png` · `chatgpt.png` · `heygen.png` · `elevenlabs.png` · `runwayml.png` · `capcut.png` · `talentlms.png` · `googletranslate.png` · `illustrator.png` · `premiere.png`
+`gemini.png` · `chatgpt.png` · `heygen.png` · `elevenlabs.png` · `runwayml.png` · `capcut.png` · `canva.png` · `talentlms.png` · `googletranslate.png` · `illustrator.png` · `premiere.png` · `aftereffects.png` · `storyline.png`
 
 ---
 

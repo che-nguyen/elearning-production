@@ -43,6 +43,15 @@ function buildChip(el){
     '<span><span class="cn">'+name+'</span><span class="cd">'+desc+'</span></span>';
 }
 
+/* logo-only tool icon (index step cards): official PNG at assets/logos/<slug>.png, else colored initial */
+function buildIcon(el){
+  var name=el.getAttribute('data-name')||'',color=el.getAttribute('data-color')||'#242f52',slug=el.getAttribute('data-tool');
+  var init=name.replace(/[^A-Za-z0-9]/g,'').charAt(0).toUpperCase();
+  el.title=name;
+  el.innerHTML='<img src="assets/logos/'+slug+'.png" alt="'+name+'" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'">'+
+    '<span class="init" style="display:none;background:'+color+'">'+init+'</span>';
+}
+
 /* media auto-loader: img / gif / video / audio, any extension */
 var MEDIA_EXT=['mp4','webm','gif','png','jpg','jpeg','mp3','wav'];
 var mediaCache={};
@@ -72,6 +81,7 @@ function loadMedia(box,state){
 window.addEventListener('load',function(){
   countUp('c1',114);countUp('c2',74);
   document.querySelectorAll('.chip[data-tool]').forEach(buildChip);
+  document.querySelectorAll('.ti[data-tool]').forEach(buildIcon);
   document.querySelectorAll('.media[data-media]').forEach(function(m){loadMedia(m,'after');});
   applyStoredLang();
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('in');});},{threshold:.12});
