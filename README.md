@@ -34,19 +34,26 @@ Colored-initial placeholders show automatically. To use official logos, drop a *
 ## Files
 
 ```
-index.html            The whole presentation (structure + style + logic)
-assets/fonts/         Brand fonts (ITC Century + Atlas Grotesk)
-assets/logos/         Pizza 4P's logo + tool logos
-assets/media/         Your before/after images / GIFs / videos / audio
-mockup.html           Early design mockup (reference only)
+index.html                 Overview / hub page (hero + stat + step grid)
+preparation.html           Stage 01
+content-design.html        Stage 02
+illustration.html          Stage 03 (narrator / voice-over / visuals)
+digital-development.html   Stage 04
+wrap-up.html               Skills shift + Kaizen lessons
+styles.css                 Shared styling for all pages
+site.js                    Shared logic (toggles, counter, media loader, logo swap)
+assets/fonts/              Brand fonts (ITC Century + Atlas Grotesk)
+assets/logos/              Pizza 4P's logo + tool logos
+assets/media/              Your before/after images / GIFs / videos / audio
 ```
 
 ## Features
 
-- **EN / VIE** language toggle (top-right)
+- **Multi-page** — a hub plus one page per stage and a wrap-up page
+- **Persistent navigator** — jump to any stage (or Overview / Wrap-up) from any page; Prev/Next at the bottom of each page
+- **EN / VIE** language toggle (remembers your choice across pages)
 - **Before / After** toggle on every stage card
-- Animated 114 → 74 day counter
-- Reveal-on-scroll, Pizza 4P's brand fonts & colors
+- Animated 114 → 74 day counter, reveal-on-scroll, Pizza 4P's brand fonts & colors
 
 ## Run locally
 

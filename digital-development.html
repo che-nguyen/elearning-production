@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Digital Development — E-learning × AI</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="inner">
+    <a class="home" href="index.html"><img src="assets/logos/logo-cream.png" alt="Pizza 4P's"><b>Overview</b></a>
+    <div class="rail">
+      <a href="preparation.html"><span class="rn">1</span><span class="t" data-en="Preparation" data-vi="Chuẩn bị">Preparation</span></a>
+      <a href="content-design.html"><span class="rn">2</span><span class="t" data-en="Content Design" data-vi="Thiết kế nội dung">Content Design</span></a>
+      <a href="illustration.html"><span class="rn">3</span><span class="t" data-en="Illustration" data-vi="Minh họa">Illustration</span></a>
+      <a class="on" href="digital-development.html"><span class="rn">4</span><span class="t" data-en="Digital Dev" data-vi="Phát triển số">Digital Dev</span></a>
+      <a href="wrap-up.html"><span class="rn">★</span><span class="t" data-en="Wrap-up" data-vi="Tổng kết">Wrap-up</span></a>
+    </div>
+    <div class="lang"><button class="on" onclick="setLang('en',this)">EN</button><button onclick="setLang('vi',this)">VIE</button></div>
+  </div>
+</nav>
+
+<header class="detailhead">
+  <div class="wrap">
+    <div class="crumb"><span class="pill">Stage 04</span> <span data-en="Major time saved" data-vi="Tiết kiệm nhiều thời gian">Major time saved</span></div>
+    <h1 data-en="Digital Development" data-vi="Phát triển số">Digital Development</h1>
+    <p data-en="Editing the video, adding subtitles, and cloning the course into other languages." data-vi="Dựng video, thêm phụ đề và nhân bản khóa học sang các ngôn ngữ khác.">Editing the video, adding subtitles, and cloning the course into other languages.</p>
+  </div>
+</header>
+
+<section class="detail">
+  <div class="wrap reveal">
+    <div class="subtasks">
+      <div class="card" data-card>
+        <div class="chead">
+          <div class="job" data-en="Subtitles &amp; multi-language cloning" data-vi="Phụ đề &amp; nhân bản đa ngôn ngữ">Subtitles &amp; multi-language cloning</div>
+          <div class="toggle"><button class="before" onclick="flip(this,'before')" data-en="Before" data-vi="Trước">Before</button><button class="after on" onclick="flip(this,'after')" data-en="After" data-vi="Sau">After</button></div>
+        </div>
+        <div class="body">
+          <div class="media" data-media="assets/media/subtitle"><div class="ph"><b data-en="[ image / GIF / video ]" data-vi="[ ảnh / GIF / video ]">[ image / GIF / video ]</b><span>subtitle-before / subtitle-after</span></div></div>
+          <div class="panel">
+            <div class="state-before hidden">
+              <span class="statebadge before" data-en="Before" data-vi="Trước">Before</span>
+              <p data-en="Subtitles typed in manually, sentence by sentence. Cloning the course into another language meant starting from the very beginning." data-vi="Phụ đề gõ tay, từng câu một. Nhân bản khóa học sang ngôn ngữ khác đồng nghĩa làm lại từ đầu.">Subtitles typed in manually, sentence by sentence. Cloning the course into another language meant starting from the very beginning.</p>
+              <div class="pain">⚠ <span data-en="Every language = a full restart" data-vi="Mỗi ngôn ngữ = làm lại toàn bộ">Every language = a full restart</span></div>
+              <div class="tools"><span class="chip old" data-tool="manual" data-name="Manual input" data-desc="sentence by sentence" data-color="#842e14"></span></div>
+            </div>
+            <div class="state-after">
+              <span class="statebadge after" data-en="After" data-vi="Sau">After</span>
+              <p data-en="Auto-generate subtitles in CapCut Pro, then clone the course into other languages using the AI features in TalentLMS." data-vi="Tự động tạo phụ đề bằng CapCut Pro, rồi nhân bản khóa học sang ngôn ngữ khác bằng tính năng AI trên TalentLMS.">Auto-generate subtitles in CapCut Pro, then clone the course into other languages using the AI features in TalentLMS.</p>
+              <div class="win">✓ <span data-en="Clone, don't rebuild — new languages in a fraction of the time" data-vi="Nhân bản, không làm lại — thêm ngôn ngữ chỉ trong một phần thời gian">Clone, don't rebuild — new languages in a fraction of the time</span></div>
+              <div class="tools"><span class="chip" data-tool="capcut" data-name="CapCut Pro" data-desc="auto subtitles" data-color="#000000"></span><span class="chip" data-tool="talentlms" data-name="TalentLMS" data-desc="AI course clone" data-color="#f7941e"></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pager">
+      <a href="illustration.html"><div class="dir" data-en="← Previous" data-vi="← Trước đó">← Previous</div><div class="pt" data-en="03 · Illustration Prep" data-vi="03 · Chuẩn bị minh họa">03 · Illustration Prep</div></a>
+      <a class="next" href="wrap-up.html"><div class="dir" data-en="Next →" data-vi="Tiếp →">Next →</div><div class="pt" data-en="★ · Wrap-up" data-vi="★ · Tổng kết">★ · Wrap-up</div></a>
+    </div>
+  </div>
+</section>
+
+<footer><span data-en="Pizza 4P's · Learning &amp; Development — AI Application Team Sharing" data-vi="Pizza 4P's · Learning &amp; Development — Chia sẻ ứng dụng AI">Pizza 4P's · Learning &amp; Development — AI Application Team Sharing</span></footer>
+<script src="site.js"></script>
+</body>
+</html>
