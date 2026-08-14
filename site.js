@@ -32,24 +32,32 @@ function applyStoredLang(){
   if(l==='vi')setLang('vi',null);
 }
 
-/* tool-logo chips: official PNG at assets/logos/<slug>.png, else colored initial */
+/* tool-logo images: try assets/logos/<slug>.<ext> across common extensions, else colored initial */
+var LOGO_EXT=['png','jpg','jpeg','webp','svg'];
+function tryLogoExt(img,slug,i){
+  if(i>=LOGO_EXT.length){img.style.display='none';img.nextElementSibling.style.display='flex';return;}
+  img.onerror=function(){tryLogoExt(img,slug,i+1);};
+  img.src='assets/logos/'+slug+'.'+LOGO_EXT[i];
+}
+
+/* tool-logo chips (with name + description) */
 function buildChip(el){
   var name=el.getAttribute('data-name'),desc=el.getAttribute('data-desc'),
       color=el.getAttribute('data-color')||'#242f52',slug=el.getAttribute('data-tool');
   var init=name.replace(/[^A-Za-z0-9]/g,'').charAt(0).toUpperCase();
-  el.innerHTML='<span class="logo">'+
-    '<img src="assets/logos/'+slug+'.png" alt="'+name+'" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'">'+
+  el.innerHTML='<span class="logo"><img alt="'+name+'">'+
     '<span class="init" style="display:none;background:'+color+'">'+init+'</span></span>'+
     '<span><span class="cn">'+name+'</span><span class="cd">'+desc+'</span></span>';
+  tryLogoExt(el.querySelector('img'),slug,0);
 }
 
-/* logo-only tool icon (index step cards): official PNG at assets/logos/<slug>.png, else colored initial */
+/* logo-only tool icon (index step cards) */
 function buildIcon(el){
   var name=el.getAttribute('data-name')||'',color=el.getAttribute('data-color')||'#242f52',slug=el.getAttribute('data-tool');
   var init=name.replace(/[^A-Za-z0-9]/g,'').charAt(0).toUpperCase();
   el.title=name;
-  el.innerHTML='<img src="assets/logos/'+slug+'.png" alt="'+name+'" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'">'+
-    '<span class="init" style="display:none;background:'+color+'">'+init+'</span>';
+  el.innerHTML='<img alt="'+name+'"><span class="init" style="display:none;background:'+color+'">'+init+'</span>';
+  tryLogoExt(el.querySelector('img'),slug,0);
 }
 
 /* media auto-loader: img / gif / video / audio, any extension */
